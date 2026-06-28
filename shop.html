@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marrih</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shop.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/LogoMarrihFavicon.png">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            <p>Marrih</p>
+        </div>
+
+        <div class="infos">
+            <ul>
+                <a href="./index.html">
+                    <li>Home</li>
+                </a>
+                <a href="./shop.html">
+                    <li>Shop</li>
+                </a>
+                <a href="#contato">
+                    <li>Contact</li>
+                </a>
+            </ul>
+        </div>
+
+        <div class="pesquisa">
+
+            <input type="text" placeholder="Procure produtos">
+
+            <div class="carrinho-container">
+                <img id="carrinho" src="./img/shopping-cart.svg" alt="Carrinho">
+
+                <span id="contador-carrinho">0</span>
+            </div>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <section class="colecao">
+            <h1>Conheça nossa coleção</h1>
+        </section>
+
+        <section class="shop">
+
+            <div class="produto">
+                <div class="imagem-produto">
+                    <img src="./img/Teste.jpg" alt="Camisa Casual">
+                </div>
+
+                <div class="textinho">
+                    <h3>Camisa Casual</h3>
+                    <p>R$ 149,99</p>
+                    <button onclick="adicionarAoCarrinho(
+                        'Camisa Casual',
+                        149.99,
+                        './img/Teste.jpg'
+                        )">
+                        Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="imagem-produto">
+                    <img src="./img/Teste.jpg" alt="Camisa Casual">
+                </div>
+
+                <div class="textinho">
+                    <h3>Camisa Casual</h3>
+                    <p>R$ 149,99</p>
+                    <button onclick="adicionarAoCarrinho(
+                        'Camisa Casual',
+                        149.99,
+                        './img/Teste.jpg'
+                        )">
+                        Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="imagem-produto">
+                    <img src="./img/Teste.jpg" alt="Camisa Casual">
+                </div>
+
+                <div class="textinho">
+                    <h3>Camisa Casual</h3>
+                    <p>R$ 149,99</p>
+                    <button onclick="adicionarAoCarrinho(
+                        'Camisa Casual',
+                        149.99,
+                        './img/Teste.jpg'
+                        )">
+                        Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="imagem-produto">
+                    <img src="./img/Teste.jpg" alt="Camisa Casual">
+                </div>
+
+                <div class="textinho">
+                    <h3>Camisa Casual</h3>
+                    <p>R$ 149,99</p>
+                    <button onclick="adicionarAoCarrinho(
+                        'Camisa Casual',
+                        149.99,
+                        './img/Teste.jpg'
+                        )">
+                        Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="imagem-produto">
+                    <img src="./img/Teste.jpg" alt="Camisa Casual">
+                </div>
+
+                <div class="textinho">
+                    <h3>Vestido</h3>
+                    <p>R$ 149,99</p>
+                    <button onclick="adicionarAoCarrinho(
+                        'Camisa Casual',
+                        149.99,
+                        './img/Teste.jpg'
+                        )">
+                        Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+
+            <div class="produto">
+                <div class="imagem-produto">
+                    <img src="./img/Teste.jpg" alt="Camisa Casual">
+                </div>
+
+                <div class="textinho">
+                    <h3>Camisa Casual</h3>
+                    <p>R$ 149,99</p>
+                    <button onclick="adicionarAoCarrinho(
+                        'Camisa Casual',
+                        149.99,
+                        './img/Teste.jpg'
+                        )">
+                        Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="coluna">
+                <h2>Marrih</h2>
+
+                <p>
+                    Moda feminina com peças elegantes, confortáveis e atemporais para todos os momentos.
+                </p>
+            </div>
+
+            <div class="coluna">
+                <h3>Navegação</h3>
+
+                <a href="#" onclick="window.location.href='index.html'">Início</a>
+                <a href="#" onclick="window.location.href='shop.html'">Loja</a>
+            </div>
+
+            <div class="coluna" id="contato">
+                <h3>Contato</h3>
+
+                <p>marrih2026@gmail.com</p>
+                <p>(43) 99117-6852</p>
+            </div>
+
+            <div class="coluna" id="contato">
+                <h3>Redes Sociais</h3>
+
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+    <div id="carrinho-modal" class="carrinho-modal">
+        <div class="carrinho-conteudo">
+            <div class="carrinho-topo">
+                <button id="fechar-carrinho"></button>
+            </div>
+
+            <div id="lista-carrinho"></div>
+            <div class="carrinho-footer">
+
+                <h4 id="quantidade-itens">
+                    Itens: 0
+                </h4>
+
+                <h3 id="total">
+                    Total: R$ 0,00
+                </h3>
+                <button id="finalizar-btn" onclick="enviarWhatsapp()">
+                    Finalizar Pedido
+                </button>
+
+                <button id="esvaziar-btn" onclick="esvaziarCarrinho()">
+                    Esvaziar Carrinho
+                </button>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>

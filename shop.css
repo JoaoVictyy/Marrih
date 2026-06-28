@@ -1,0 +1,425 @@
+body {
+    overflow-x: hidden;
+}
+
+
+
+.colecao {
+    background-color: #f3f1ef;
+    height: 180px;
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.colecao h1 {
+    font-style: italic;
+    font-size: 40px;
+    margin-left: 60px;
+    font-weight: 600;
+    color: #222;
+}
+
+.shop {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.produto {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 20px 20px 5px 5px;
+    overflow: hidden;
+    cursor: pointer;
+
+    transition: box-shadow 0.3s ease;
+}
+
+.produto:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.imagem-produto {
+    position: relative;
+    overflow: hidden;
+}
+
+.imagem-produto img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+
+    transition: transform 0.4s ease;
+}
+
+.imagem-produto:hover img {
+    transform: scale(1.05);
+}
+
+.imagem-produto::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.4),
+            transparent);
+
+    opacity: 0;
+    transition: opacity 0.4s ease;
+
+    pointer-events: none;
+}
+
+.imagem-produto:hover::after {
+    opacity: 1;
+}
+
+.textinho {
+    background-color: #fff;
+
+    padding: 18px 20px;
+
+    border-top: 1px solid #eee;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.textinho h3 {
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 500;
+    color: #494949;
+
+    margin: 0;
+}
+
+.textinho p {
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+
+    margin: 0;
+}
+
+
+
+
+.carrinho-modal {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, .3);
+
+    display: flex;
+    justify-content: flex-end;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .3s;
+
+    z-index: 1000000 !important;
+}
+
+.carrinho-modal.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.carrinho-conteudo {
+    width: 450px;
+    max-width: 100%;
+    height: 100%;
+
+    background: #fff;
+    border-left: 1px solid #eee;
+
+    display: flex;
+    flex-direction: column;
+
+    transform: translateX(100%);
+    transition: transform .4s ease;
+
+    box-shadow: -5px 0 20px rgba(0, 0, 0, .2);
+}
+
+.carrinho-modal.ativo .carrinho-conteudo {
+    transform: translateX(0);
+}
+
+.carrinho-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+#fechar-carrinho {
+    background: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+
+    border-radius: 50%;
+}
+
+#fechar-carrinho:hover {
+    background: #f1f1f1;
+    color: crimson;
+}
+
+#lista-carrinho {
+    flex: 1;
+    overflow-y: auto;
+
+    padding: 20px;
+}
+
+.item-carrinho {
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 20px;
+    margin-bottom: 15px;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 18px;
+
+    background: #fff;
+}
+
+.remover {
+    background: crimson;
+    color: white;
+    border: none;
+
+    padding: 6px 12px;
+
+    cursor: pointer;
+}
+
+.carrinho-footer {
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+.carrinho-footer button {
+    margin-top: 10px;
+}
+
+
+.miniatura {
+    width: 110px;
+    height: 110px;
+
+    object-fit: cover;
+    border-radius: 15px;
+
+    flex-shrink: 0;
+}
+
+
+.vazio {
+    text-align: center;
+    margin-top: 50px;
+    color: #777;
+}
+
+.carrinho-vazio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+
+    text-align: center;
+    padding: 40px;
+}
+
+.carrinho-vazio img {
+    width: 90px;
+    opacity: .4;
+    margin-bottom: 20px;
+}
+
+.carrinho-vazio h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.carrinho-vazio p {
+    color: #777;
+    max-width: 250px;
+}
+
+.carrinho-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#contador-carrinho {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+
+    width: 20px;
+    height: 20px;
+
+    background: #000;
+    color: #fff;
+
+    border-radius: 50%;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#fechar-carrinho {
+    all: unset !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px !important;
+    height: 40px !important;
+
+    color: #000 !important;
+    font-size: 28px !important;
+    font-weight: 900 !important;
+    line-height: 1 !important;
+
+    cursor: pointer;
+    z-index: 999999;
+}
+
+#fechar-carrinho::before {
+    content: "✕";
+    cursor: pointer;
+
+}
+
+#fechar-carrinho:hover {
+    color: crimson !important;
+}
+
+.info-item {
+    flex: 1;
+}
+
+.info-item h4 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.remover-link {
+    flex-shrink: 0;
+
+    border: none;
+
+    color: #ff4d4d;
+    cursor: pointer;
+
+    margin: 0;
+    padding: 0;
+
+    font-size: 12px;
+
+    width: 80px;
+    height: 40px;
+}
+
+
+
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+    .shop {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .imagem-produto img {
+        height: 420px;
+    }
+}
+
+@media (max-width: 600px) {
+    .colecao {
+        height: 140px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .colecao h1 {
+        font-size: 32px;
+        margin-left: 0;
+    }
+
+    .shop {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+
+    .imagem-produto img {
+        height: 430px;
+    }
+
+    .carrinho-conteudo {
+        width: 100%;
+    }
+
+    .item-carrinho {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .miniatura {
+        width: 100%;
+        height: 250px;
+    }
+
+    .remover-link {
+        width: auto;
+        height: auto;
+    }
+}
